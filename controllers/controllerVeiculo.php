@@ -11,5 +11,5 @@ if ($opcao === 1) {
 
     $veiculoDAO->incluirVeiculo($veiculo);
 
-    header("Location:controllerVeiculo.php?opcao=2");
+    //header("Location:controllerVeiculo.php?opcao=2");
 }
