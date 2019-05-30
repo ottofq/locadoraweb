@@ -40,6 +40,59 @@ class VeiculoDAO
         }
         return $lista;
     }
+
+    public function getVeiculosPorNome($nome) {
+        $sql = $this->con->prepare("SELECT * FROM veiculos WHERE nome LIKE :nome");
+        $sql->bindValue(':nome', $nome.'%');
+        $rs = $sql->execute();
+
+        $lista = array();
+
+        while ($veiculo = $rs->fetch(PDO::FETCH_OBJ)) {
+            $lista[] = $veiculo;
+        }
+        return $lista;
+    }
+
+    public function getVeiculosPorFabricante($fabricante) {
+        $sql = $this->con->prepare("SELECT * FROM veiculos WHERE fabricante LIKE :fabricante");
+        $sql->bindValue(':fabricante', $fabricante.'%');
+        $rs = $sql->execute();
+
+        $lista = array();
+
+        while ($veiculo = $rs->fetch(PDO::FETCH_OBJ)) {
+            $lista[] = $veiculo;
+        }
+        return $lista;
+    }
+
+    public function getVeiculosPorPlaca($placa) {
+        $sql = $this->con->prepare("SELECT * FROM veiculos WHERE placa LIKE :placa");
+        $sql->bindValue(':placa', $placa.'%');
+        $rs = $sql->execute();
+
+        $lista = array();
+
+        while ($veiculo = $rs->fetch(PDO::FETCH_OBJ)) {
+            $lista[] = $veiculo;
+        }
+        return $lista;
+    }
+
+    public function getVeiculosPorMotorizacao($motorizacao) {
+        $sql = $this->con->prepare("SELECT * FROM veiculos WHERE motorizacao LIKE :motorizacao");
+        $sql->bindValue(':motorizacao', $motorizacao.'%');
+        $rs = $sql->execute();
+
+        $lista = array();
+
+        while ($veiculo = $rs->fetch(PDO::FETCH_OBJ)) {
+            $lista[] = $veiculo;
+        }
+        return $lista;
+    }
+
     public function excluirVeiculo($placa)
     {
         $sql = $this->con->prepare("DELETE FROM veiculos WHERE placa = :placa");
