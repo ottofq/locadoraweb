@@ -13,8 +13,8 @@
         <form action="../../controllers/controllerCliente.php" method="POST">
 
             <div class="form-group">
-                <label>CPF</label>
-                <input type="text" onkeypress="$(this).mask('000.000.000-00')" class="form-control" name="txtCPFCliente" required>
+                <label>CPF (somente numeros)</label>
+                <input type="text" onkeypress="$(this).mask('00000000000')" class="form-control" name="txtCPFCliente" required>
             </div>
 
             <div class="form-group">
@@ -39,7 +39,7 @@
 
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control" name="txtMotorizacaoVeiculo" required>
+                <input type="email" class="form-control" name="txtEmailCliente" required>
             </div>
 
             <div class="container">

@@ -9,7 +9,7 @@ if ($opcao === 1) {
     $cliente    = new Cliente($_REQUEST['txtCPFCliente'], $_REQUEST['txtNomeCliente'], $_REQUEST['txtRGCliente'], $_REQUEST['txtEnderecoCliente'], $_REQUEST['txtTelefoneCliente'], $_REQUEST['txtEmailCliente']);
     $clienteDAO = new ClienteDAO();
 
-    $ClienteDAO->incluirCliente($cliente);
+    $clienteDAO->incluirCliente($cliente);
 
     //header("Location:controllerCliente.php?opcao=2");
 }

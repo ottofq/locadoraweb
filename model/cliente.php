@@ -9,12 +9,12 @@ class Cliente
     private $telefone;
     private $email;
 
-    public function Cliente($nome, $cpf, $rg, $endereco, $telefone, $email)
+    public function Cliente($cpf, $nome, $rg, $endereco, $telefone, $email)
     {
-        $this->nome = $nome;
-        $this->cpf  = $cpf;
-        $this->rg   = $rg;
-        $this->endereco;
+        $this->nome     = $nome;
+        $this->cpf      = $cpf;
+        $this->rg       = $rg;
+        $this->endereco = $endereco;
         $this->telefone = $telefone;
         $this->email    = $email;
     }
