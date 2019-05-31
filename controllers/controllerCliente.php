@@ -11,5 +11,12 @@ if ($opcao === 1) {
 
     $clienteDAO->incluirCliente($cliente);
 
-    //header("Location:controllerCliente.php?opcao=2");
+    header("Location:controllerCliente.php?opcao=2");
+}
+if ($opcao === 2) {
+    $clienteDAO = new ClienteDAO();
+    $lista      = $clienteDAO->getClientes();
+    session_start();
+    $_SESSION['ListaClientes'] = $lista;
+    header("Location:../views/cliente/exibirClientes.php");
 }
