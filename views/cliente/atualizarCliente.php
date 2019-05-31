@@ -36,8 +36,8 @@ $cliente = $_SESSION['Cliente'];
                 </div>
 
                 <div class="form-group">
-                    <label>Telefone</label>
-                    <input type="text" class="form-control" name="txtTelefoneCliente" value="<?php echo $cliente->telefone ?>" required >
+                    <label>Celular</label>
+                    <input type="text" onkeypress="$(this).mask('(00) 00000-0000')" class="form-control" name="txtTelefoneCliente" value="<?php echo $cliente->telefone ?>" required >
                 </div>
 
                 <div class="form-group">

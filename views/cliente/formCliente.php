@@ -33,8 +33,8 @@
             </div>
 
             <div class="form-group">
-                <label>Telefone</label>
-                <input type="text" onkeypress="$(this).mask('(00) 0000-0000')" class="form-control" name="txtTelefoneCliente" required>
+                <label>Celular</label>
+                <input type="text" onkeypress="$(this).mask('(00) 00000-0000')" class="form-control" name="txtTelefoneCliente" required>
             </div>
 
             <div class="form-group">
