@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Cadastro de Cliente</title>
 </head>
 <body>
+
     <?php
 session_start();
 $cliente = $_SESSION['Cliente'];
@@ -17,12 +19,12 @@ $cliente = $_SESSION['Cliente'];
         <form action="../../controllers/controllerCliente.php" method="POST">
             <div class="form-group">
                     <label>CPF</label>
-                    <input type="text" class="form-control" name="txtCPFCliente" value="<?php echo $cliente->cpf ?>" required>
+                    <input type="text" onkeypress="$(this).mask('00000000000')" class="form-control" name="txtCPFCliente" value="<?php echo $cliente->cpf ?>" readonly required>
                 </div>
 
                 <div class="form-group">
                     <label>Nome</label>
-                    <input type="text" class="form-control" name="txtNomeCliente" value="<?php echo $cliente->nome ?>" required>
+                    <input type="text"  class="form-control" name="txtNomeCliente" value="<?php echo $cliente->nome ?>" required>
                 </div>
 
                 <div class="form-group">

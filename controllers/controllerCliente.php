@@ -32,7 +32,6 @@ if ($opcao === 4) {
     $clienteDAO = new ClienteDAO();
     $clienteDAO->excluirCliente($_REQUEST['cpf']);
     header("Location:controllerCliente.php?opcao=2");
-
 }
 
 if ($opcao === 5) {
