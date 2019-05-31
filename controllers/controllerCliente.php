@@ -28,6 +28,12 @@ if ($opcao === 3) {
     $_SESSION['Cliente'] = $cliente;
     header("Location:../views/cliente/atualizarCliente.php");
 }
+if ($opcao === 4) {
+    $clienteDAO = new ClienteDAO();
+    $clienteDAO->excluirCliente($_REQUEST['cpf']);
+    header("Location:controllerCliente.php?opcao=2");
+
+}
 
 if ($opcao === 5) {
     $clienteDAO = new ClienteDAO();
