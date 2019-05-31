@@ -27,8 +27,6 @@ class Cliente
     public function setNome($nome)
     {
         $this->nome = $nome;
-
-        return $this;
     }
 
     public function getCpf()
@@ -39,8 +37,6 @@ class Cliente
     public function setCpf($cpf)
     {
         $this->cpf = $cpf;
-
-        return $this;
     }
 
     public function getRg()
@@ -51,8 +47,6 @@ class Cliente
     public function setRg($rg)
     {
         $this->rg = $rg;
-
-        return $this;
     }
 
     public function getEndereco()
@@ -63,8 +57,6 @@ class Cliente
     public function setEndereco($endereco)
     {
         $this->endereco = $endereco;
-
-        return $this;
     }
 
     public function getTelefone()
@@ -75,8 +67,6 @@ class Cliente
     public function setTelefone($telefone)
     {
         $this->telefone = $telefone;
-
-        return $this;
     }
 
     public function getEmail()
@@ -87,7 +77,5 @@ class Cliente
     public function setEmail($email)
     {
         $this->email = $email;
-
-        return $this;
     }
 }
