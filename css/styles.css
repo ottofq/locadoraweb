@@ -1,10 +1,13 @@
 
 /*menu*/
+.navbar-toggler-icon{
+    color:  #256450 !important;
+}
 .logoSite{
     width: 75px;
     height: 75px;
 }
-nav *{
+nav *,h2{
     font-family: 'Bungee', cursive;
     color:#256450;
 }
@@ -29,8 +32,58 @@ nav *{
 /* formulario cliente */
 .container-form{
     font-family: 'Roboto', sans-serif;
-    margin: 30px;
+    color: #256450;
+    font-size: 18px;
+    margin-top: 30px;
     padding: 30px;
     background-color: #ade1d0;
-    border: 1px red solid;
+    border: 2px solid #256450;
+}
+.container-titulo{
+    margin: 30px;
+    border: 2px solid #256450;
+}
+
+.container-titulo > h2{
+    padding-top: 5px;
+    text-align: center;
+}
+
+.formCliente-button > button{
+    font-family: 'Bungee', cursive;
+    margin-top: 10px;
+}
+
+.formCliente-button > a > button{
+    font-family: 'Bungee', cursive;
+    margin-top : 10px;
+}
+
+/* exibir clientes */
+.container-tbl{
+    padding: 20px;
+    border :2px solid #256450;
+    margin: 30px;
+} 
+
+.container-tbl th{
+    text-align: center;
+    font-family: 'Bungee', cursive;
+    color:#256450;
+}
+.container-tbl td{
+    text-align: center;
+}
+
+a > button{
+    font-family: 'Bungee', cursive;
+    margin-left: 5px;
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #ade1d0;
+}
+
+/* atualizar cliente*/
+form > button{
+    font-family: 'Bungee', cursive;
 }

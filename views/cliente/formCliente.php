@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Bungee&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../imagens/Logo.png" />
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto:500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Cadastro de Cliente</title>
 </head>
 <body>
     <?php include '../../menu.php';?>
+
+    <div class="container container-titulo">
+        <h2>Cadastro de Clientes</h2>
+    </div>
+
     <div class="container container-form">
         <form action="../../controllers/controllerCliente.php" method="POST">
 
@@ -45,11 +51,12 @@
                 <input type="email" class="form-control" name="txtEmailCliente" required>
             </div>
 
-            <div class="container">
-                <button type="submit" class="btn btn-primary btnSpc">Cadastrar</button>
-                <button type="reset" class="btn btn-secondary btnSpc">Limpar</button>
-                <a href="../../index.html" =><button type="button" class="btn btn-secondary ">Voltar</button></a>
+            <div class="formCliente-button">
+                <button type="submit" class="btn btn-outline-success">Cadastrar</button>
+                <button type="reset" class="btn btn-outline-success">Limpar</button>
+                <a href="../../index.html"><button type="button" class="btn btn-outline-success">Voltar</button></a>
             </div>
+
             <input type="hidden" name="opcao" value="1">
         </form>
 
