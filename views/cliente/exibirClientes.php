@@ -44,7 +44,7 @@ $clientes = $_SESSION['ListaClientes'];
             <td><?php echo $cliente->endereco ?></td>
             <td><?php echo $cliente->telefone ?></td>
             <td><?php echo $cliente->email ?></td>
-            <td>
+            <td class="btn-exibirClientes">
                 <a href="../../controllers/controllerCliente.php?opcao=3&cpf=<?php echo $cliente->cpf ?>" >
                     <button class="btn btn-outline-success">Editar</button>
                 </a>

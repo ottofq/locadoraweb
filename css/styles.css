@@ -83,6 +83,11 @@ a > button{
     background-color: #ade1d0;
 }
 
+.btn-exibirClientes > a > button{
+    margin-top: 10px;
+}
+
+
 /* atualizar cliente*/
 form > button{
     font-family: 'Bungee', cursive;
