@@ -17,8 +17,8 @@
             </div>
 
             <div class="form-group">
-                <label>Nome do Veiculo</label>
-                <input type="text" class="form-control" name="txtNomeVeiculo" required>
+                <label>Modelo do Veículo</label>
+                <input type="text" class="form-control" name="txtModeloVeiculo" required>
             </div>
 
             <div class="form-group">
@@ -33,7 +33,7 @@
 
             <div class="form-group">
                 <label>Opcionais</label>
-                <input type="text" class="form-control" name="txtOpcionaisVeiculo" required>
+                <input type="text" class="form-control" name="txtOpcionaisVeiculo">
             </div>
 
             <div class="form-group">
@@ -48,10 +48,12 @@
 
             <div class="form-group">
                 <label>Categoria</label>
-                <input type="text" class="form-control" name="txtCategoriaVeiculo" required>
+                <select class="form-control" name="txtCategoriaVeiculo" required>
+                  <option value="1">SUV</option>
+                  <option value="2">Passeio</option>
+                  <option value="3">Van</option>
+                </select>
             </div>
-
-
             <div class="container">
                 <button type="submit" class="btn btn-primary btnSpc">Cadastrar</button>
                 <button type="reset" class="btn btn-secondary btnSpc">Limpar</button>
