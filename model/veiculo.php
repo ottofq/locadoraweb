@@ -2,7 +2,7 @@
 class Veiculo
 {
     private $placa;
-    private $nome;
+    private $modelo;
     private $anoFabricacao;
     private $fabricante;
     private $opcionais;
@@ -10,10 +10,9 @@ class Veiculo
     private $valorBase;
     private $categoria;
 
-    public function Veiculo($placa, $nome, $anoFabricacao, $fabricante, $opcionais, $motorizacao, $valorBase, $categoria)
+    public function Veiculo($modelo, $anoFabricacao, $fabricante, $opcionais, $motorizacao, $valorBase, $categoria)
     {
-        $this->placa         = $placa;
-        $this->nome          = $nome;
+        $this->modelo        = $modelo;
         $this->anoFabricacao = $anoFabricacao;
         $this->fabricante    = $fabricante;
         $this->opcionais     = $opcionais;
@@ -32,14 +31,14 @@ class Veiculo
         $this->placa = $placa;
     }
 
-    public function getNome()
+    public function getModelo()
     {
-        return $this->nome;
+        return $this->modelo;
     }
 
-    public function setNome($nome)
+    public function setNome($modelo)
     {
-        $this->nome = $nome;
+        $this->modelo = $modelo;
     }
 
     public function getAnoFabricacao()
