@@ -14,10 +14,10 @@ class VeiculoDAO
 
     public function incluirVeiculo(Veiculo $veiculo)
     {
-        $sql = $this->con->prepare("insert into veiculos(placa,nome,anoFabricacao,fabricante,opcionais,motorizacao,valorBase,id_categoria) values (:placa,:nome,:ano,:fabricante,:opcionais,:motorizacao,:valor,:categoria)");
+        $sql = $this->con->prepare("insert into veiculos(placa,modelo,anoFabricacao,fabricante,opcionais,motorizacao,valorBase,id_categoria) values (:placa,:modelo,:ano,:fabricante,:opcionais,:motorizacao,:valor,:categoria)");
 
         $sql->bindValue(':placa', $veiculo->getPlaca());
-        $sql->bindValue(':nome', $veiculo->getNome());
+        $sql->bindValue(':modelo', $veiculo->getModelo());
         $sql->bindValue(':ano', $veiculo->getAnoFabricacao());
         $sql->bindValue(':fabricante', $veiculo->getFabricante());
         $sql->bindValue(':opcionais', $veiculo->getOpcionais());
@@ -41,9 +41,9 @@ class VeiculoDAO
         return $lista;
     }
 
-    public function getVeiculosPorNome($nome) {
-        $sql = $this->con->prepare("SELECT * FROM veiculos WHERE nome LIKE :nome");
-        $sql->bindValue(':nome', $nome.'%');
+    public function getVeiculosPorModelo($modelo) {
+        $sql = $this->con->prepare("SELECT * FROM veiculos WHERE modelo LIKE :modelo");
+        $sql->bindValue(':modelo', $modelo.'%');
         $rs = $sql->execute();
 
         $lista = array();
@@ -103,10 +103,10 @@ class VeiculoDAO
 
     public function atualizarVeiculo(Veiculo $veiculo)
     {
-        $sql = $this->con->prepare("UPDATE veiculos SET placa = :placa, nome = :nome, anoFabricacao = :ano, fabricante = :fabricante, opcionais = :opcionais, motorizacao = :motorizacao, valorBase = :valor, id_Categoria = :categoria WHERE placa = :placa");
+        $sql = $this->con->prepare("UPDATE veiculos SET placa = :placa, modelo = :modelo, anoFabricacao = :ano, fabricante = :fabricante, opcionais = :opcionais, motorizacao = :motorizacao, valorBase = :valor, id_Categoria = :categoria WHERE placa = :placa");
 
         $sql->bindValue(':placa', $veiculo->getPlaca());
-        $sql->bindValue(':nome', $veiculo->getNome());
+        $sql->bindValue(':modelo', $veiculo->getModelo());
         $sql->bindValue(':ano', $veiculo->getAnoFabricacao());
         $sql->bindValue(':fabricante', $veiculo->getFabricante());
         $sql->bindValue(':opcionais', $veiculo->getOpcionais());
