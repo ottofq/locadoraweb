@@ -20,7 +20,7 @@ if ($opcao == 2) { // Consultar todos veiculos
     $veiculoDAO = new VeiculoDAO();
     session_start();
     $_SESSION['veiculos'] = $veiculoDAO->getVeiculos();
-    header("Location: ../views/veiculo/exibirVeiculos.php");
+    header("Location: ../exibirVeiculos.php");
 }
 
 if ($opcao == 3) { // Pegar um veiculo
@@ -29,7 +29,7 @@ if ($opcao == 3) { // Pegar um veiculo
   $veiculo = $veiculoDAO->getVeiculo($placa);
   session_start();
   $_SESSION['veiculo'] = $veiculo;
-  header("Location: ../views/veiculo/formAtualizarVeiculo.php");
+  header("Location: ../formAtualizarVeiculo.php");
 }
 
 if ($opcao == 4) { // Remover veiculo
