@@ -1,5 +1,6 @@
 <?php
   require_once 'cabecalho.inc';
+  require_once 'dao/categoriaDAO.php';
   session_start();
   $veiculo = $_SESSION['veiculo'];
 ?>
@@ -48,25 +49,15 @@
                 <label>Categoria</label>
                 <select class="form-control" name="txtCategoriaVeiculo">
                   <?php
-                    switch ((int) $veiculo->id_categoria) {
-                      case 1:
-                        echo "<option value='1' selected>SUV</option>";
-                        echo "<option value='2'>Passeio</option>";
-                        echo "<option value='3'>Van</option>";
-                        break;
-
-                      case 2:
-                        echo "<option value='1'>SUV</option>";
-                        echo "<option value='2' selected>Passeio</option>";
-                        echo "<option value='3'>Van</option>";
-                        break;
-
-                      case 3:
-                        echo "<option value='1'>SUV</option>";
-                        echo "<option value='2'>Passeio</option>";
-                        echo "<option value='3' selected>Van</option>";
-                        break;
-                    };
+                    $categoriaDAO = new CategoriaDAO();
+                    $categorias = $categoriaDAO->getCategorias();
+                    foreach ($categorias as $cat) {
+                      if ($cat->id_categoria == $veiculo->id_categoria) {
+                          echo "<option value='$cat->id_categoria' selected>$cat->descricao</option>";
+                      } else {
+                          echo "<option value='$cat->id_categoria'>$cat->descricao</option>";
+                      }
+                    }
                   ?>
                 </select>
             </div>

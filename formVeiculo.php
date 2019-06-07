@@ -1,4 +1,7 @@
-<?php include_once 'cabecalho.inc' ?>
+<?php
+  require_once 'cabecalho.inc';
+  require_once 'dao/categoriaDAO.php';
+?>
 <div class="container container-titulo">
     <h2>Cadastro de Veículos</h2>
 </div>
@@ -43,9 +46,13 @@
             <div class="form-group">
                 <label>Categoria</label>
                 <select class="form-control" name="txtCategoriaVeiculo" required>
-                  <option value="1">SUV</option>
-                  <option value="2">Passeio</option>
-                  <option value="3">Van</option>
+                  <?php
+                    $categoriaDAO = new CategoriaDAO();
+                    $categorias = $categoriaDAO->getCategorias();
+                    foreach ($categorias as $cat) {
+                      echo "<option value='$cat->id_categoria'>$cat->descricao</option>";
+                    }
+                  ?>
                 </select>
             </div>
             <div class="formCliente-button">
