@@ -7,7 +7,7 @@ $cliente = $_SESSION['Cliente'];
         <h2>Atualizar Cliente</h2>
     </div>
     <div class="container container-form formCliente-button">
-        <form action="../../controllers/controllerCliente.php" method="POST">
+        <form action="controllers/controllerCliente.php" method="POST">
             <div class="form-group">
                     <label>CPF</label>
                     <input type="text" onkeypress="$(this).mask('00000000000')" class="form-control" name="txtCPFCliente" value="<?php echo $cliente->cpf ?>" readonly required>
