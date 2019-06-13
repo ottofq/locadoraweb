@@ -4,7 +4,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small blue-grey lighten-5">
+<footer class="page-footer font-small blue-grey lighten-5 mt-5">
 
   <div style="background-color: #21d192;">
     <div class="container">
@@ -139,8 +139,8 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center text-black-50 py-3">© 2018 Copyright:
-    <a class="dark-grey-text" href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+  <div class="footer-copyright text-center text-black-50 py-3">© 2019 Copyright:
+    <a class="dark-grey-text" href="#">Alegre Car</a>
   </div>
   <!-- Copyright -->
 

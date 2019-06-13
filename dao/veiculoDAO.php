@@ -1,5 +1,9 @@
 <?php
-require_once '../model/veiculo.php';
+
+$path = $_SERVER['DOCUMENT_ROOT'] . '\locadoraweb\model\\';
+$file = $path . 'veiculo.php';
+require_once($file);
+//require_once '../model/veiculo.php';
 require_once 'conexao.php';
 
 class VeiculoDAO

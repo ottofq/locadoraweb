@@ -11,7 +11,7 @@
     <title>Locadora de Veiculos</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-custom">
+  <nav class="navbar navbar-expand-lg navbar-custom mb-5">
           <div class="container">
               <a class="navbar-brand mb-0" href="index.php"><img class="logoSite" src="imagens/Logo.png" alt="Logo Site"></a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">

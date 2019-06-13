@@ -20,7 +20,7 @@ nav *,h2{
 .navbar-custom {
     background-color:#ade1d0;
 }
-.navbar-nav > li > .dropdown-menu { 
+.navbar-nav > li > .dropdown-menu {
     background-color: #ade1d0;
 }
 .dropdown-menu > li > a:hover {
@@ -64,7 +64,7 @@ nav *,h2{
     padding: 20px;
     border :2px solid #256450;
     margin: 30px;
-} 
+}
 
 .container-tbl th{
     text-align: center;
