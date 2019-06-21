@@ -1,8 +1,8 @@
 <?php
-  require_once 'cabecalho.inc';
-  require_once 'dao/categoriaDAO.php';
-  session_start();
-  $veiculo = $_SESSION['veiculo'];
+require_once 'cabecalho.php';
+require_once 'dao/categoriaDAO.php';
+session_start();
+$veiculo = $_SESSION['veiculo'];
 ?>
 <div class="container container-titulo" >
     <h2>Atualizar Veículo</h2>
@@ -49,16 +49,16 @@
                 <label>Categoria</label>
                 <select class="form-control" name="txtCategoriaVeiculo">
                   <?php
-                    $categoriaDAO = new CategoriaDAO();
-                    $categorias = $categoriaDAO->getCategorias();
-                    foreach ($categorias as $cat) {
-                      if ($cat->id_categoria == $veiculo->id_categoria) {
-                          echo "<option value='$cat->id_categoria' selected>$cat->descricao</option>";
-                      } else {
-                          echo "<option value='$cat->id_categoria'>$cat->descricao</option>";
-                      }
-                    }
-                  ?>
+$categoriaDAO = new CategoriaDAO();
+$categorias   = $categoriaDAO->getCategorias();
+foreach ($categorias as $cat) {
+    if ($cat->id_categoria == $veiculo->idcategoria) {
+        echo "<option value='$cat->id_categoria' selected>$cat->descricao</option>";
+    } else {
+        echo "<option value='$cat->id_categoria'>$cat->descricao</option>";
+    }
+}
+?>
                 </select>
             </div>
 
@@ -70,4 +70,4 @@
         </form>
 
     </div>
-<?php require_once 'rodape.inc' ?>
+<?php require_once 'rodape.php'?>

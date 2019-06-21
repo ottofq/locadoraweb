@@ -1,5 +1,5 @@
 <?php
-require_once 'cabecalho.inc';
+require_once 'cabecalho.php';
 session_start();
 $cliente = $_SESSION['Cliente'];
 ?>
@@ -11,6 +11,11 @@ $cliente = $_SESSION['Cliente'];
             <div class="form-group">
                     <label>CPF</label>
                     <input type="text" onkeypress="$(this).mask('00000000000')" class="form-control" name="txtCPFCliente" value="<?php echo $cliente->cpf ?>" readonly required>
+                </div>
+
+                <div class="form-group">
+                    <label>CNH</label>
+                    <input type="text" onkeypress="$(this).mask('00000000000')" class="form-control" name="txtCNHCliente" value="<?php echo $cliente->cnh ?>" readonly required>
                 </div>
 
                 <div class="form-group">
@@ -44,4 +49,4 @@ $cliente = $_SESSION['Cliente'];
         </form>
 
     </div>
-<?php require_once 'rodape.inc' ?>
+<?php require_once 'rodape.php'?>

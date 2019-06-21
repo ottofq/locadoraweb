@@ -1,6 +1,6 @@
 <?php
 
-require_once 'cabecalho.inc';
+require_once 'cabecalho.php';
 require_once 'dao/categoriaDAO.php';
 require_once 'dao/veiculoDAO.php';
 
@@ -14,17 +14,17 @@ require_once 'dao/veiculoDAO.php';
       <ul class="nav nav-pills flex-column">
         <li class="nav-item">
           <?php
-            $categoriaDAO = new CategoriaDAO();
-            $categorias = $categoriaDAO->getCategorias();
-            foreach ($categorias as $cat) {
-          ?>
+$categoriaDAO = new CategoriaDAO();
+$categorias   = $categoriaDAO->getCategorias();
+foreach ($categorias as $cat) {
+    ?>
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="chkBox<?php echo $cat->descricao ?>">
             <label class="custom-control-label" for="chkBox<?php echo $cat->descricao ?>"><?php echo $cat->descricao ?></label>
           </div>
           <?php
-          }
-          ?>
+}
+?>
         </li>
       </ul>
       <hr class="d-sm-none">
@@ -32,14 +32,14 @@ require_once 'dao/veiculoDAO.php';
     </div>
     <div class="col-sm-9">
       <?php
-        $veiculoDAO = new VeiculoDAO();
-        $veiculos = $veiculoDAO->getVeiculos();
-        foreach ($veiculos as $veiculo) {
-          $categoria = $categoriaDAO->getDescricao($veiculo->id_categoria);
-          $diaria = $veiculo->valorBase + $categoria->valor;
+$veiculoDAO = new VeiculoDAO();
+$veiculos   = $veiculoDAO->getVeiculos();
+foreach ($veiculos as $veiculo) {
+    $categoria = $categoriaDAO->getDescricao($veiculo->idcategoria);
+    $diaria    = $veiculo->valorBase + $categoria->valor;
 
-          $opcionais = explode(",", $veiculo->opcionais);
-      ?>
+    $opcionais = explode(",", $veiculo->opcionais);
+    ?>
       <div class="card mb-3">
         <div class="card-header">
           <h5 class="text-muted"><?php echo $categoria->descricao ?></h5>
@@ -53,10 +53,10 @@ require_once 'dao/veiculoDAO.php';
             <div class="col-sm-4">
               <ul class="list-group list-group-flush">
                 <?php
-                  foreach ($opcionais as $op) {
-                      echo "<li class='list-group-item'>".$op."</li>";
-                  }
-                ?>
+foreach ($opcionais as $op) {
+        echo "<li class='list-group-item'>" . $op . "</li>";
+    }
+    ?>
               </ul>
             </div>
             <div class="col-sm-4 d-flex flex-column bd-highlight align-items-center justify-content-center">
@@ -67,11 +67,11 @@ require_once 'dao/veiculoDAO.php';
         </div>
       </div>
       <?php
-        }
-      ?>
+}
+?>
     </div>
   </div>
 
 </div>
 
-<?php require_once 'rodape.inc' ?>
+<?php require_once 'rodape.php'?>

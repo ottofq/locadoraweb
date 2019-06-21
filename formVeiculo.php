@@ -1,6 +1,6 @@
 <?php
-  require_once 'cabecalho.inc';
-  require_once 'dao/categoriaDAO.php';
+require_once 'cabecalho.php';
+require_once 'dao/categoriaDAO.php';
 ?>
 <div class="container container-titulo">
     <h2>Cadastro de Veículos</h2>
@@ -47,12 +47,12 @@
                 <label>Categoria</label>
                 <select class="form-control" name="txtCategoriaVeiculo" required>
                   <?php
-                    $categoriaDAO = new CategoriaDAO();
-                    $categorias = $categoriaDAO->getCategorias();
-                    foreach ($categorias as $cat) {
-                      echo "<option value='$cat->id_categoria'>$cat->descricao</option>";
-                    }
-                  ?>
+$categoriaDAO = new CategoriaDAO();
+$categorias   = $categoriaDAO->getCategorias();
+foreach ($categorias as $cat) {
+    echo "<option value='$cat->id_categoria'>$cat->descricao</option>";
+}
+?>
                 </select>
             </div>
             <div class="formCliente-button">
@@ -64,4 +64,4 @@
         </form>
 
     </div>
-<?php include_once 'rodape.inc' ?>
+<?php include_once 'rodape.php'?>

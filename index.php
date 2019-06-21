@@ -1,4 +1,4 @@
-<?php include_once 'cabecalho.inc' ?>
+<?php include_once 'cabecalho.php'?>
 <div class="container">
   <div class="row">
     <div class="col">
@@ -30,4 +30,4 @@
     </div>
   </div>
 </div>
-<?php include_once 'rodape.inc' ?>
+<?php include_once 'rodape.php'?>

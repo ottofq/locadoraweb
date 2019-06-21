@@ -1,4 +1,4 @@
-<?php require_once 'cabecalho.inc' ?>
+<?php require_once 'cabecalho.php'?>
 
     <div class="container container-titulo">
         <h2>Cadastro de Clientes</h2>
@@ -10,6 +10,11 @@
             <div class="form-group">
                 <label>CPF (somente numeros)</label>
                 <input type="text" onkeypress="$(this).mask('00000000000')" class="form-control" name="txtCPFCliente" required>
+            </div>
+
+            <div class="form-group">
+                <label>CNH</label>
+                <input type="text" onkeypress="$(this).mask('00000000000')" class="form-control" name="txtCNHCliente" required>
             </div>
 
             <div class="form-group">
@@ -47,4 +52,4 @@
         </form>
 
     </div>
-<?php require_once 'rodape.inc' ?>
+<?php require_once 'rodape.php'?>

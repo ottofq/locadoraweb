@@ -4,15 +4,17 @@ class Cliente
 {
     private $nome;
     private $cpf;
+    private $cnh;
     private $rg;
     private $endereco;
     private $telefone;
     private $email;
 
-    public function Cliente($cpf, $nome, $rg, $endereco, $telefone, $email)
+    public function Cliente($cpf, $cnh, $nome, $rg, $endereco, $telefone, $email)
     {
         $this->nome     = $nome;
         $this->cpf      = $cpf;
+        $this->cnh      = $cnh;
         $this->rg       = $rg;
         $this->endereco = $endereco;
         $this->telefone = $telefone;
@@ -77,5 +79,16 @@ class Cliente
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    public function getCNH()
+    {
+        return $this->cnh;
+    }
+
+    public function setCNH($cnh)
+    {
+        $this->cnh = $cnh;
+
     }
 }

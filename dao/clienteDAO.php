@@ -15,9 +15,10 @@ class ClienteDAO
 
     public function incluirCliente(Cliente $cliente)
     {
-        $sql = $this->con->prepare("insert into socios(cpf, nome, rg, endereco, telefone, email) values (:cpf,:nome,:rg,:endereco,:telefone,:email)");
+        $sql = $this->con->prepare("insert into socios(cpf,cnh, nome, rg, endereco, telefone, email) values (:cpf,:cnh,:nome,:rg,:endereco,:telefone,:email)");
 
         $sql->bindValue(':cpf', $cliente->getCpf());
+        $sql->bindValue(':cnh', $cliente->getCNH());
         $sql->bindValue(':nome', $cliente->getNome());
         $sql->bindValue(':rg', $cliente->getRg());
         $sql->bindValue(':endereco', $cliente->getEndereco());
@@ -49,9 +50,10 @@ class ClienteDAO
 
     public function atualizarCliente(Cliente $cliente)
     {
-        $sql = $this->con->prepare("UPDATE socios SET cpf = :cpf, nome = :nome, rg = :rg, endereco = :endereco, telefone = :telefone, email = :email WHERE cpf = :cpf");
+        $sql = $this->con->prepare("UPDATE socios SET cpf = :cpf,cnh = :cnh nome = :nome, rg = :rg, endereco = :endereco, telefone = :telefone, email = :email WHERE cpf = :cpf");
 
         $sql->bindValue(':cpf', $cliente->getCpf());
+        $sql->bindValue(':cnh', $cliente->getCNH());
         $sql->bindValue(':nome', $cliente->getNome());
         $sql->bindValue(':rg', $cliente->getRg());
         $sql->bindValue(':endereco', $cliente->getEndereco());

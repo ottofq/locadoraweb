@@ -6,7 +6,7 @@ require_once '../dao/clienteDAO.php';
 $opcao = (int) $_REQUEST['opcao'];
 
 if ($opcao == 1) {
-    $cliente    = new Cliente($_REQUEST['txtCPFCliente'], $_REQUEST['txtNomeCliente'], $_REQUEST['txtRGCliente'], $_REQUEST['txtEnderecoCliente'], $_REQUEST['txtTelefoneCliente'], $_REQUEST['txtEmailCliente']);
+    $cliente    = new Cliente($_REQUEST['txtCPFCliente'], $_REQUEST['txtCNHCliente'], $_REQUEST['txtNomeCliente'], $_REQUEST['txtRGCliente'], $_REQUEST['txtEnderecoCliente'], $_REQUEST['txtTelefoneCliente'], $_REQUEST['txtEmailCliente']);
     $clienteDAO = new ClienteDAO();
 
     $clienteDAO->incluirCliente($cliente);
@@ -36,7 +36,7 @@ if ($opcao == 4) {
 
 if ($opcao == 5) {
     $clienteDAO = new ClienteDAO();
-    $cliente    = new Cliente($_REQUEST['txtCPFCliente'], $_REQUEST['txtNomeCliente'], $_REQUEST['txtRGCliente'], $_REQUEST['txtEnderecoCliente'], $_REQUEST['txtTelefoneCliente'], $_REQUEST['txtEmailCliente']);
+    $cliente    = new Cliente($_REQUEST['txtCPFCliente'], $_REQUEST['txtCNHCliente'], $_REQUEST['txtNomeCliente'], $_REQUEST['txtRGCliente'], $_REQUEST['txtEnderecoCliente'], $_REQUEST['txtTelefoneCliente'], $_REQUEST['txtEmailCliente']);
     $cliente->setCPF($_REQUEST['txtCPFCliente']);
     $clienteDAO->atualizarCliente($cliente);
     header("Location:controllerCliente.php?opcao=2");

@@ -1,8 +1,8 @@
 <?php
 
-$path = $_SERVER['DOCUMENT_ROOT'] . '\locadoraweb\model\\';
+$path = $_SERVER['DOCUMENT_ROOT'] . '/locadoraweb/model//';
 $file = $path . 'veiculo.php';
-require_once($file);
+require_once $file;
 //require_once '../model/veiculo.php';
 require_once 'conexao.php';
 
@@ -18,18 +18,22 @@ class VeiculoDAO
 
     public function incluirVeiculo(Veiculo $veiculo)
     {
-        $sql = $this->con->prepare("insert into veiculos(placa,modelo,anoFabricacao,fabricante,opcionais,motorizacao,valorBase,id_categoria) values (:placa,:modelo,:ano,:fabricante,:opcionais,:motorizacao,:valor,:categoria)");
+        try {
+            $sql = $this->con->prepare("insert into veiculos(placa,modelo,anoFabricacao,fabricante,opcionais,motorizacao,valorBase,idcategoria,locado) values (:placa,:modelo,:ano,:fabricante,:opcionais,:motorizacao,:valor,:categoria,0)");
 
-        $sql->bindValue(':placa', $veiculo->getPlaca());
-        $sql->bindValue(':modelo', $veiculo->getModelo());
-        $sql->bindValue(':ano', $veiculo->getAnoFabricacao());
-        $sql->bindValue(':fabricante', $veiculo->getFabricante());
-        $sql->bindValue(':opcionais', $veiculo->getOpcionais());
-        $sql->bindValue(':motorizacao', $veiculo->getMotorizacao());
-        $sql->bindValue(':valor', $veiculo->getValorBase());
-        $sql->bindValue(':categoria', $veiculo->getCategoria());
+            $sql->bindValue(':placa', $veiculo->getPlaca());
+            $sql->bindValue(':modelo', $veiculo->getModelo());
+            $sql->bindValue(':ano', $veiculo->getAnoFabricacao());
+            $sql->bindValue(':fabricante', $veiculo->getFabricante());
+            $sql->bindValue(':opcionais', $veiculo->getOpcionais());
+            $sql->bindValue(':motorizacao', $veiculo->getMotorizacao());
+            $sql->bindValue(':valor', $veiculo->getValorBase());
+            $sql->bindValue(':categoria', $veiculo->getCategoria());
 
-        $sql->execute();
+            $sql->execute();
+        } catch (Exception $ex) {
+            $ex->getMessage();
+        }
 
     }
 
@@ -45,9 +49,10 @@ class VeiculoDAO
         return $lista;
     }
 
-    public function getVeiculosPorModelo($modelo) {
+    public function getVeiculosPorModelo($modelo)
+    {
         $sql = $this->con->prepare("SELECT * FROM veiculos WHERE modelo LIKE :modelo");
-        $sql->bindValue(':modelo', $modelo.'%');
+        $sql->bindValue(':modelo', $modelo . '%');
         $rs = $sql->execute();
 
         $lista = array();
@@ -58,9 +63,10 @@ class VeiculoDAO
         return $lista;
     }
 
-    public function getVeiculosPorFabricante($fabricante) {
+    public function getVeiculosPorFabricante($fabricante)
+    {
         $sql = $this->con->prepare("SELECT * FROM veiculos WHERE fabricante LIKE :fabricante");
-        $sql->bindValue(':fabricante', $fabricante.'%');
+        $sql->bindValue(':fabricante', $fabricante . '%');
         $rs = $sql->execute();
 
         $lista = array();
@@ -71,9 +77,10 @@ class VeiculoDAO
         return $lista;
     }
 
-    public function getVeiculosPorPlaca($placa) {
+    public function getVeiculosPorPlaca($placa)
+    {
         $sql = $this->con->prepare("SELECT * FROM veiculos WHERE placa LIKE :placa");
-        $sql->bindValue(':placa', $placa.'%');
+        $sql->bindValue(':placa', $placa . '%');
         $rs = $sql->execute();
 
         $lista = array();
@@ -84,9 +91,10 @@ class VeiculoDAO
         return $lista;
     }
 
-    public function getVeiculosPorMotorizacao($motorizacao) {
+    public function getVeiculosPorMotorizacao($motorizacao)
+    {
         $sql = $this->con->prepare("SELECT * FROM veiculos WHERE motorizacao LIKE :motorizacao");
-        $sql->bindValue(':motorizacao', $motorizacao.'%');
+        $sql->bindValue(':motorizacao', $motorizacao . '%');
         $rs = $sql->execute();
 
         $lista = array();
@@ -107,7 +115,7 @@ class VeiculoDAO
 
     public function atualizarVeiculo(Veiculo $veiculo)
     {
-        $sql = $this->con->prepare("UPDATE veiculos SET placa = :placa, modelo = :modelo, anoFabricacao = :ano, fabricante = :fabricante, opcionais = :opcionais, motorizacao = :motorizacao, valorBase = :valor, id_Categoria = :categoria WHERE placa = :placa");
+        $sql = $this->con->prepare("UPDATE veiculos SET placa = :placa, modelo = :modelo, anoFabricacao = :ano, fabricante = :fabricante, opcionais = :opcionais, motorizacao = :motorizacao, valorBase = :valor, idcategoria = :categoria WHERE placa = :placa");
 
         $sql->bindValue(':placa', $veiculo->getPlaca());
         $sql->bindValue(':modelo', $veiculo->getModelo());

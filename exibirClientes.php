@@ -1,4 +1,4 @@
-<?php require_once 'cabecalho.inc' ?>
+<?php require_once 'cabecalho.php'?>
 <?php
 session_start();
 $clientes = $_SESSION['ListaClientes'];
@@ -13,6 +13,7 @@ $clientes = $_SESSION['ListaClientes'];
         <table class="table table-bordered table-hover table-responsive-md" >
             <tr>
                 <th>CPF</th>
+                <th>CNH</th>
                 <th>Nome</th>
                 <th>RG</th>
                 <th>Endereço</th>
@@ -24,6 +25,7 @@ $clientes = $_SESSION['ListaClientes'];
     ?>
         <tr>
             <td><?php echo $cliente->cpf ?></td>
+            <td><?php echo $cliente->cnh ?></td>
             <td><?php echo $cliente->nome ?></td>
             <td><?php echo $cliente->rg ?></td>
             <td><?php echo $cliente->endereco ?></td>
@@ -55,4 +57,4 @@ $clientes = $_SESSION['ListaClientes'];
             <button class="btn btn-secondary">Voltar</button>
         </a>
     </div>
-<?php require_once 'rodape.inc' ?>
+<?php require_once 'rodape.php'?>
