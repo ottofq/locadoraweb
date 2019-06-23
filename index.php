@@ -10,13 +10,13 @@
           <form action="veiculos.php" method="post">
             <div class="form-group">
               <label>Data de retirada</label>
-              <input type="date" name="dataRetirada" class="form-control"><br>
-              <input type="time" name="horarioRetirada" class="form-control">
+              <input type="date" name="dataRetirada" class="form-control" required><br>
+              <input type="time" name="horarioRetirada" class="form-control" required>
             </div>
             <div class="form-group">
               <label>Data de devolução</label>
-              <input type="date" name="dataDevolucao" class="form-control"><br>
-              <input type="time" name="horarioDevolucao" class="form-control">
+              <input type="date" name="dataDevolucao" class="form-control" required><br>
+              <input type="time" name="horarioDevolucao" class="form-control" required>
             </div>
             <input type="submit" class="btn btn-success btn-lg" value="Pesquisar">
           </form>
