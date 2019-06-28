@@ -90,12 +90,10 @@ foreach ($opcionais as $op) {
               </ul>
             </div>
             <div class="col-sm-4 d-flex flex-column bd-highlight align-items-center justify-content-center">
-              <h3 class="mb-5" style="color:#256450">R$ <?php echo $diaria ?> / diária</h3>
+              <?php $qtdDias = (strtotime($dataDevolucao) - strtotime($dataRetirada))/86400 ?>
+              <h3 class="mb-5" style="color:#256450">R$ <?php echo $qtdDias * $diaria ?></h3>
               <h5 class="mb-4">
-              <?php
-                $qtdDias = (strtotime($dataDevolucao) - strtotime($dataRetirada))/86400;
-                echo "<p>Total ($qtdDias dias): R$ " . $qtdDias * $diaria . "</p>";
-              ?>
+              <p>R$ <?php echo $diaria ?> / diária</p>
               </h5>
               <a href="reserva.php?placaVeiculo=<?php echo $veiculo->placa ?>" class="btn btn-warning btn-lg"><b>Selecionar</b></a>
             </div>

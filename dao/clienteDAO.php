@@ -73,4 +73,15 @@ class ClienteDAO
 
         return $sql->fetch(PDO::FETCH_OBJ);
     }
+
+    public function getClientePorEmail($email)
+    {
+        $sql = $this->con->prepare('SELECT * FROM socios WHERE email= :email');
+
+        $sql->bindValue(':email', $email);
+        $sql->execute();
+
+        return $sql->fetch(PDO::FETCH_OBJ);
+    }
+
 }
