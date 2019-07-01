@@ -15,10 +15,13 @@
 
 session_start();
 
-if (isset($_SESSION["Admin"])) {
-    include_once "menuAdm.php";
-} elseif (isset($_SESSION["Cliente"])) {
-    include_once "menuCliente.php";
+if (isset($_SESSION["Cliente"])) {
+    $cliente = $_SESSION["Cliente"];
+    if ($cliente->admin == 1) {
+        include_once "menuAdm.php";
+    } else {
+        include_once "menuCliente.php";
+    }
 } else {
     include_once "menu.php";
 }

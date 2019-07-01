@@ -92,3 +92,8 @@ a > button{
 form > button{
     font-family: 'Bungee', cursive;
 }
+
+.carrinho-img {
+    width: 30px;
+    height: 30px;
+}

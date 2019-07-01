@@ -30,6 +30,17 @@
                             </div>
                     </li>
 
+                    <li class="nav-item dropdown menu-dropdown">
+                            <a class="nav-link dropdown-toggle  " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Perfil
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="atualizarCliente.php">Atualizar Dados</a>
+                              <a class="dropdown-item" href="">Ver Reservas</a>
+                              <a class="dropdown-item" href="controllers/controllerCliente.php?opcao=7">Logout</a>
+                            </div>
+                    </li>
+
                     <li class="nav-item">
                             <a class="nav-link links" href="#">Quem Somos</a>
                     </li>

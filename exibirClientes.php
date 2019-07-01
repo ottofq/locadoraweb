@@ -1,6 +1,10 @@
 <?php require_once 'cabecalho.php'?>
 <?php
 session_start();
+$user = $_SESSION["Cliente"];
+if ($user->admin == 0) {
+    header("Location:index.php");
+}
 $clientes = $_SESSION['ListaClientes'];
 ?>
 

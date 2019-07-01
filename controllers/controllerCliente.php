@@ -11,7 +11,12 @@ if ($opcao == 1) {
 
     $clienteDAO->incluirCliente($cliente);
 
-    header("Location:controllerCliente.php?opcao=2");
+    if ($cliente->admin == 1) {
+        header("Location:controllerCliente.php?opcao=2");
+    } else {
+        header("Location:../index.php");
+    }
+
 }
 if ($opcao == 2) {
     $clienteDAO = new ClienteDAO();
@@ -39,7 +44,13 @@ if ($opcao == 5) {
     $cliente    = new Cliente($_REQUEST['txtCPFCliente'], $_REQUEST['txtCNHCliente'], $_REQUEST['txtNomeCliente'], $_REQUEST['txtRGCliente'], $_REQUEST['txtEnderecoCliente'], $_REQUEST['txtTelefoneCliente'], $_REQUEST['txtEmailCliente'], $_REQUEST['txtSenhaCliente']);
     $cliente->setCPF($_REQUEST['txtCPFCliente']);
     $clienteDAO->atualizarCliente($cliente);
-    header("Location:controllerCliente.php?opcao=2");
+
+    if ($cliente->admin == 1) {
+        header("Location:controllerCliente.php?opcao=2");
+    } else {
+        header("Location:../index.php");
+    }
+
 }
 
 if ($opcao == 6) {
@@ -49,17 +60,18 @@ if ($opcao == 6) {
     $cliente    = $clienteDAO->autentica($email, $senha);
 
     if ($cliente != null) {
-        if ($cliente->admin == 0) {
-            session_start();
-            $_SESSION["Cliente"] = $cliente;
-            header("Location:../index.php");
-        } elseif ($cliente->admin == 1) {
-            session_start();
-            $_SESSION["Admin"] = $cliente;
-            header("Location:../index.php");
-        }
+        session_start();
+        $_SESSION["Cliente"] = $cliente;
+        header("Location:../index.php");
     } else {
-        echo "erro no login";
+        header("Location:../login.php?error=1");
     }
 
+}
+
+if ($opcao == 7) {
+    session_start();
+    //unset($_SESSION["Cliente"]);
+    session_destroy();
+    header("Location:../index.php");
 }

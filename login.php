@@ -19,6 +19,8 @@ if (isset($_REQUEST["login"])) {
               <label for="senha">Senha</label>
               <input type="password" name="senha" class="form-control" required><br>
               <input type="hidden" name="opcao" value="6">
+              <div id="error">
+              </div>
               <input type="submit" class="btn btn-success btn-lg btn-block" value="Entrar">
             </div>
           </form>
@@ -28,7 +30,21 @@ if (isset($_REQUEST["login"])) {
       </div>
     </div>
   </div>
+  <?php
+if (isset($_REQUEST["error"])) {
+    if ($_REQUEST["error"] == 1) {
+        echo "<script type='text/javascript'>
+        window.onload = function(){
+          var erro = document.getElementById('error');
+          erro.classList.add('alert');
+          erro.classList.add('alert-danger');
+          erro.innerHTML = 'Login Incorreto! Digite a senha e o email corretamente!';
+        }
+        </script>";
+    }
+}
+?>
 
 </div>
-
+<script src="js/errorLogin.js"></script>
 <?php require_once "rodape.php";?>
