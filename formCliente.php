@@ -5,21 +5,23 @@
     </div>
 
     <div class="container container-form">
-        <form action="controllers/controllerCliente.php" method="POST">
+        <form  action="controllers/controllerCliente.php" onsubmit="return validacao()" method="POST"  >
 
             <div class="form-group">
-                <label>CPF (somente numeros)</label>
-                <input type="text" onkeypress="$(this).mask('00000000000')" class="form-control" name="txtCPFCliente" required>
+                <label for="validationCPF">CPF (somente numeros)</label>
+                <input type="text" onkeypress="$(this).mask('00000000000')" class="form-control" id="validationCPF"  name="txtCPFCliente" required>
+                <div id="CPFValidador"></div>
             </div>
 
             <div class="form-group">
-                <label>CNH</label>
-                <input type="text" onkeypress="$(this).mask('00000000000')" class="form-control" name="txtCNHCliente" required>
+                <label for="validationCNH">CNH</label>
+                <input type="text" onkeypress="$(this).mask('00000000000')" class="form-control" id="validationCNH" name="txtCNHCliente" required>
+                <div id="CNHValidador"></div>
             </div>
 
             <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" name="txtNomeCliente" required>
+                <input type="text" class="form-control" name="txtNomeCliente" data-js="nomeCliente"  required>
             </div>
 
             <div class="form-group">
@@ -33,13 +35,25 @@
             </div>
 
             <div class="form-group">
-                <label>Celular</label>
-                <input type="text" onkeypress="$(this).mask('(00) 00000-0000')" class="form-control" name="txtTelefoneCliente" required>
+                <label for="validationCelular" >Celular</label>
+                <input type="text" onkeypress="$(this).mask('(00) 00000-0000')" id="validationCelular" class="form-control" name="txtTelefoneCliente" required>
+                <div id="CelularValidador"></div>
             </div>
 
             <div class="form-group">
                 <label>Email</label>
                 <input type="email" class="form-control" name="txtEmailCliente" required>
+            </div>
+
+            <div class="form-group">
+                <label for="validationSenha">Senha</label>
+                <input type="password" id="validationSenha" class="form-control" name="txtSenhaCliente" required>
+                <div id="SenhaValidador"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="validationSenha2">Repita a Senha</label>
+                <input type="password" id="validationSenha2" class="form-control" name="txtSenhaCliente2" required>
             </div>
 
             <div class="formCliente-button">
@@ -52,4 +66,5 @@
         </form>
 
     </div>
+    <script src="js/validador.js"></script>
 <?php require_once 'rodape.php'?>
