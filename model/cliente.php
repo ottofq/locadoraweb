@@ -9,8 +9,9 @@ class Cliente
     private $endereco;
     private $telefone;
     private $email;
+    private $senha;
 
-    public function Cliente($cpf, $cnh, $nome, $rg, $endereco, $telefone, $email)
+    public function Cliente($cpf, $cnh, $nome, $rg, $endereco, $telefone, $email, $senha)
     {
         $this->nome     = $nome;
         $this->cpf      = $cpf;
@@ -19,6 +20,7 @@ class Cliente
         $this->endereco = $endereco;
         $this->telefone = $telefone;
         $this->email    = $email;
+        $this->senha    = $senha;
     }
 
     public function getNome()
@@ -89,6 +91,17 @@ class Cliente
     public function setCNH($cnh)
     {
         $this->cnh = $cnh;
+
+    }
+
+    public function getSenha()
+    {
+        return $this->senha;
+    }
+
+    public function setSenha($senha)
+    {
+        $this->senha = $senha;
 
     }
 }

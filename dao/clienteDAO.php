@@ -15,7 +15,7 @@ class ClienteDAO
 
     public function incluirCliente(Cliente $cliente)
     {
-        $sql = $this->con->prepare("insert into socios(cpf,cnh, nome, rg, endereco, telefone, email) values (:cpf,:cnh,:nome,:rg,:endereco,:telefone,:email)");
+        $sql = $this->con->prepare("insert into socios(cpf,cnh, nome, rg, endereco, telefone, email,senha) values (:cpf,:cnh,:nome,:rg,:endereco,:telefone,:email,:senha)");
 
         $sql->bindValue(':cpf', $cliente->getCpf());
         $sql->bindValue(':cnh', $cliente->getCNH());
@@ -24,6 +24,7 @@ class ClienteDAO
         $sql->bindValue(':endereco', $cliente->getEndereco());
         $sql->bindValue(':telefone', $cliente->getTelefone());
         $sql->bindValue(':email', $cliente->getEmail());
+        $sql->bindValue(':senha', $cliente->getSenha());
 
         $sql->execute();
     }
@@ -50,7 +51,7 @@ class ClienteDAO
 
     public function atualizarCliente(Cliente $cliente)
     {
-        $sql = $this->con->prepare("UPDATE socios SET cpf = :cpf,cnh = :cnh nome = :nome, rg = :rg, endereco = :endereco, telefone = :telefone, email = :email WHERE cpf = :cpf");
+        $sql = $this->con->prepare("UPDATE socios SET cpf = :cpf,cnh = :cnh nome = :nome, rg = :rg, endereco = :endereco, telefone = :telefone, email = :email, senha = :senha WHERE cpf = :cpf");
 
         $sql->bindValue(':cpf', $cliente->getCpf());
         $sql->bindValue(':cnh', $cliente->getCNH());
@@ -59,6 +60,7 @@ class ClienteDAO
         $sql->bindValue(':endereco', $cliente->getEndereco());
         $sql->bindValue(':telefone', $cliente->getTelefone());
         $sql->bindValue(':email', $cliente->getEmail());
+        $sql->bindValue(':email', $cliente->getSenha());
 
         $sql->execute();
 
@@ -84,4 +86,17 @@ class ClienteDAO
         return $sql->fetch(PDO::FETCH_OBJ);
     }
 
+    public function autentica($email, $senha)
+    {
+        $sql = $this->con->prepare("SELECT * FROM socios WHERE email = :email AND senha = :senha");
+        $sql->bindValue(":email", $email);
+        $sql->bindValue(":senha", $senha);
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) { // verifica se a consulta retorna algo
+            return $sql->fetch(PDO::FETCH_OBJ);
+        } else {
+            return null;
+        }
+    }
 }

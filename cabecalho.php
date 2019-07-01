@@ -15,12 +15,12 @@
 
 session_start();
 
-if (isset($_SESSION["adm"])) {
-  include_once "menuAdm.php";
-} elseif (isset($_SESSION["cliente"])) {
-  include_once "menuCliente.php";
+if (isset($_SESSION["Admin"])) {
+    include_once "menuAdm.php";
+} elseif (isset($_SESSION["Cliente"])) {
+    include_once "menuCliente.php";
 } else {
-  include_once "menu.php";
+    include_once "menu.php";
 }
 session_write_close();
 

@@ -11,17 +11,16 @@
                         <a class="nav-link links" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link links" href="#">Perfil</a>
-                    </li>
-                    <li class="nav-item">
                             <a class="nav-link links" href="#">Minhas Reservas</a>
                     </li>
                     <li class="nav-item">
                             <a class="nav-link links" href="#">Quem Somos</a>
                     </li>
-
                     <li class="nav-item">
                             <a class="nav-link links" href="#">Fale Conosco</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link links" href="#">Perfil</a>
                     </li>
                 </ul>
 
