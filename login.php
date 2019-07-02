@@ -3,12 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="card p-4" style="margin: 0 auto; width:500px">
-        <?php
-if (isset($_REQUEST["login"])) {
-    echo "<div class='alert alert-danger' role='alert'>Login incorreto. Tente novamente</div>";
-}
-?>
+      <div class="card p-4 card-login">
         <h4 class="card-title mb-3" style="margin: 0 auto">
           Acesse sua Conta
         </h4>
@@ -38,7 +33,7 @@ if (isset($_REQUEST["error"])) {
           var erro = document.getElementById('error');
           erro.classList.add('alert');
           erro.classList.add('alert-danger');
-          erro.innerHTML = 'Login Incorreto! Digite a senha e o email corretamente!';
+          erro.innerHTML = 'Login Incorreto! Digite a senha e o email novamente!';
         }
         </script>";
     }

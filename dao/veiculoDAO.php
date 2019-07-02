@@ -39,7 +39,7 @@ class VeiculoDAO
 
     public function getVeiculos()
     {
-        $rs = $this->con->query("SELECT * FROM veiculos");
+        $rs = $this->con->query("SELECT * FROM veiculos WHERE locado = 0");
 
         $lista = array();
 

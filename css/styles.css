@@ -1,8 +1,13 @@
 
 /*menu*/
-.navbar-toggler-icon{
-    color:  #256450 !important;
+.custom-toggler.navbar-toggler {
+    border-color: #256450;
 }
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(37, 100, 80, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
 .logoSite{
     width: 75px;
     height: 75px;
@@ -60,7 +65,7 @@ nav *,h2{
 }
 
 /* exibir clientes */
-.container-tbl{
+.container-tbl, .container-busca{
     padding: 20px;
     border :2px solid #256450;
     margin: 30px;
@@ -97,3 +102,14 @@ form > button{
     width: 30px;
     height: 30px;
 }
+
+.card-veiculo{
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 720px) {
+    .card-login{
+        width: 500px;
+        margin: 0 auto;
+    }
+ }
