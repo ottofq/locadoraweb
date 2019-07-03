@@ -24,7 +24,7 @@
                             </div>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link links" href="#"><img src="imagens/carrinho.svg" class="carrinho-img" alt="Carrinho de Compras" srcset=""></a>
+                            <a class="nav-link links" href="controllers/controllerCarrinho.php?opcao=3"><img src="imagens/carrinho.svg" class="carrinho-img" alt="Carrinho de Compras" srcset=""></a>
                     </li>
                 </ul>
 

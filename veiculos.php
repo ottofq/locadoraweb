@@ -3,11 +3,16 @@
 require_once 'cabecalho.php';
 require_once 'dao/categoriaDAO.php';
 require_once 'dao/veiculoDAO.php';
+require_once 'utils/calcula.php';
 
-$dataRetirada = $_REQUEST["dataRetirada"];
-$horarioRetirada = $_REQUEST["horarioRetirada"];
-$dataDevolucao = $_REQUEST["dataDevolucao"];
+$dataRetirada     = $_REQUEST["dataRetirada"];
+$horarioRetirada  = $_REQUEST["horarioRetirada"];
+$dataDevolucao    = $_REQUEST["dataDevolucao"];
 $horarioDevolucao = $_REQUEST["horarioDevolucao"];
+
+session_start();
+$_SESSION["DataInicial"] = $dataRetirada;
+$_SESSION["DataFinal"]   = $dataDevolucao;
 
 ?>
 
@@ -56,13 +61,13 @@ foreach ($categorias as $cat) {
     </div>
     <div class="col-sm-9">
       <?php
-$veiculoDAO = new VeiculoDAO();
-$veiculos   = $veiculoDAO->getVeiculos();
+$veiculoDAO          = new VeiculoDAO();
+$veiculos            = $veiculoDAO->getVeiculos();
 $veiculosDisponiveis = array();
 foreach ($veiculos as $veiculo) {
-  if ($veiculo->locado == 0) {
-      $veiculosDisponiveis[] = $veiculo;
-  }
+    if ($veiculo->locado == 0) {
+        $veiculosDisponiveis[] = $veiculo;
+    }
 }
 foreach ($veiculosDisponiveis as $veiculo) {
     $categoria = $categoriaDAO->getDescricao($veiculo->idcategoria);
@@ -90,12 +95,11 @@ foreach ($opcionais as $op) {
               </ul>
             </div>
             <div class="col-sm-4 d-flex flex-column bd-highlight align-items-center justify-content-center">
-              <?php $qtdDias = (strtotime($dataDevolucao) - strtotime($dataRetirada))/86400 ?>
-              <h3 class="mb-5" style="color:#256450">R$ <?php echo $qtdDias * $diaria ?></h3>
+              <h3 class="mb-5" style="color:#256450">R$ <?php echo calculaValor($dataRetirada, $dataDevolucao, $diaria); ?></h3>
               <h5 class="mb-4">
               <p>R$ <?php echo $diaria ?> / diária</p>
               </h5>
-              <a href="reserva.php?placaVeiculo=<?php echo $veiculo->placa ?>" class="btn btn-warning btn-lg"><b>Selecionar</b></a>
+              <a href="controllers/controllerCarrinho.php?opcao=1&placaVeiculo=<?php echo $veiculo->placa ?>"><button class="btn btn-warning btn-lg">Selecionar</button></a>
             </div>
           </div>
         </div>

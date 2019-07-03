@@ -1,5 +1,5 @@
 <?php include_once 'cabecalho.php'?>
-<!-- <div class="container">
+ <div class="container">
   <div class="row">
     <div class="col">
         <div class="card text-white bg-secondary p-4">
@@ -29,7 +29,7 @@
       <p>Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery.</p>
     </div>
   </div>
-</div> -->
+</div>
 <?php
 require_once 'model/veiculo.php';
 require_once 'dao/veiculoDAO.php';
@@ -95,7 +95,7 @@ foreach ($veiculos as $veiculo) {
 
     <div class='card-body'>
       <a href='#' class='card-link'>Mais detalhes</a>
-      <a href='#' class='card-link'>Alugar</a>
+      <a href='controllers/controllerCarrinho.php?opcao=1&placa=$veiculo->placa' class='card-link'>Alugar</a>
     </div>
   </div>
   </div>
