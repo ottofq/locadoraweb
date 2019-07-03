@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 02/07/2019 às 02:15
+-- Tempo de geração: 03/07/2019 às 17:48
 -- Versão do servidor: 10.1.38-MariaDB
 -- Versão do PHP: 7.3.3
 
@@ -69,8 +69,17 @@ CREATE TABLE `locacao` (
   `dataFinal` date NOT NULL,
   `valor_total` float NOT NULL,
   `cpf_socio` varchar(11) NOT NULL,
-  `id_veiculo` int(11) NOT NULL
+  `id_veiculo` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Despejando dados para a tabela `locacao`
+--
+
+INSERT INTO `locacao` (`id_locacao`, `dataInicial`, `dataFinal`, `valor_total`, `cpf_socio`, `id_veiculo`) VALUES
+(6, '2019-07-10', '2019-07-10', 360, '12312312312', 'GUI-9617'),
+(9, '2019-07-03', '2019-07-03', 2814, '12312312312', 'DFT-2641'),
+(10, '2019-07-03', '2019-07-03', 1330, '12312312312', 'TYU-4578');
 
 -- --------------------------------------------------------
 
@@ -181,6 +190,16 @@ ALTER TABLE `socios`
 --
 ALTER TABLE `veiculos`
   ADD PRIMARY KEY (`placa`);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `locacao`
+--
+ALTER TABLE `locacao`
+  MODIFY `id_locacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
