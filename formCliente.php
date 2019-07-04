@@ -66,5 +66,5 @@
         </form>
 
     </div>
-    <script src="js/validador.js"></script>
+    <script onload=validarCPF() src="js/validador.js"></script>
 <?php require_once 'rodape.php'?>

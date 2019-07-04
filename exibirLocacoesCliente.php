@@ -9,11 +9,9 @@ if (!isset($_SESSION)) {
 }
 
 $user = $_SESSION["Cliente"];
-if ($user->admin == 1) {
-    $locacoes = $_SESSION['ListaLocacoes'];
-} else {
-    header("Location:index.php");
-}
+
+$locacoes = $_SESSION['ClienteLocacoes'];
+
 ?>
 
     <div class="container container-titulo" >
@@ -22,7 +20,7 @@ if ($user->admin == 1) {
 
 <div class="container container-tbl">
     <div>
-        <form class="form-inline mb-4" action="controllers/controllerLocacao.php?opcao=3" method="post">
+        <form class="form-inline mb-4" action="controllers/controllerCliente.php?opcao=9" method="post">
           <div class="form-group">
             <label for="dataInicio">Data inicial&nbsp;&nbsp;</label>
             <input type="date" name="dataInicial" value="<?php if (isset($_REQUEST['dataInicial'])) {
@@ -38,7 +36,7 @@ if ($user->admin == 1) {
 ?>" class="form-control" required>
           </div>
             &nbsp;&nbsp;<input type="submit" class="btn btn-success" value="Procurar">
-            <a href="controllers/controllerLocacao.php?opcao=2"><button type="button" class="btn btn-warning" name="button">Exibir todos</button></a>
+            <a href="controllers/controllerCliente.php?opcao=8"><button type="button" class="btn btn-warning" name="button">Exibir todos</button></a>
           </div>
         </form>
 

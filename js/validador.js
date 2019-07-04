@@ -8,7 +8,7 @@ function validacao() {
   var validadorCPF = document.getElementById("CPFValidador");
   var validadorCNH = document.getElementById("CNHValidador");
   var validadorCelular = document.getElementById("CelularValidador");
-  var validadorSenha = document.getElementById("SenhaValidador")
+  var validadorSenha = document.getElementById("SenhaValidador");
 
     if(cpf.value.length === 11){
         cpf.classList.add('is-valid');
@@ -58,6 +58,22 @@ function validacao() {
         return false;
     }
 
+}
+
+function validarCPF(){
+  var query = location.search;
+  var erro = query.split("?erro=");
+
+    console.log(query);
+    console.log('partes',erro);
+
+    if(erro[1] == 2){
+        var cpf = document.getElementById("validationCPF");
+        var validadorCPF = document.getElementById("CPFValidador");
+        cpf.classList.add('is-invalid');
+        validadorCPF.className = 'invalid-feedback';
+        validadorCPF.innerHTML = "JÁ EXISTE UM CLIENTE COM ESSE CPF ASSOCIADO!";
+    }
 }
 
 function validarDatas() {

@@ -15,7 +15,7 @@
                     </li>
                     <li class="nav-item dropdown menu-dropdown">
                             <a class="nav-link dropdown-toggle  " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Perfil
+                            <img class="img-user" src="imagens/user.svg"><?php echo " " . $cliente->nome ?>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item" href="atualizarCliente.php">Atualizar Dados</a>

@@ -48,4 +48,18 @@ class LocacaoDAO
         return $lista;
     }
 
+    public function getLocacoesPorDataCliente($dataMin, $dataMax, $cpf)
+    {
+        $sql = $this->con->prepare("SELECT * FROM locacao WHERE cpf_socio = :cpf AND :dataMin <= dataInicial AND dataInicial <= :dataMax");
+        $sql->bindValue(':dataMin', $dataMin);
+        $sql->bindValue(':dataMax', $dataMax);
+        $sql->bindValue(':cpf', $cpf);
+        $sql->execute();
+        $lista = array();
+        while ($locacao = $sql->fetch(PDO::FETCH_OBJ)) {
+            $lista[] = $locacao;
+        }
+        return $lista;
+    }
+
 }

@@ -49,21 +49,13 @@
 
                     <li class="nav-item dropdown menu-dropdown">
                             <a class="nav-link dropdown-toggle  " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Perfil
+                            <img class="img-user" src="imagens/user.svg"><?php echo " " . $cliente->nome ?>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item" href="atualizarCliente.php">Atualizar Dados</a>
                               <a class="dropdown-item" href="">Ver Reservas</a>
                               <a class="dropdown-item" href="controllers/controllerCliente.php?opcao=7">Logout</a>
                             </div>
-                    </li>
-
-                    <li class="nav-item">
-                            <a class="nav-link links" href="#">Quem Somos</a>
-                    </li>
-
-                    <li class="nav-item">
-                            <a class="nav-link links" href="#">Fale Conosco</a>
                     </li>
                 </ul>
 

@@ -7,15 +7,16 @@ require_once "../dao/locacaoDAO.php";
 $opcao = (int) $_REQUEST['opcao'];
 
 if ($opcao == 1) {
-    $cliente    = new Cliente($_REQUEST['txtCPFCliente'], $_REQUEST['txtCNHCliente'], $_REQUEST['txtNomeCliente'], $_REQUEST['txtRGCliente'], $_REQUEST['txtEnderecoCliente'], $_REQUEST['txtTelefoneCliente'], $_REQUEST['txtEmailCliente'], $_REQUEST['txtSenhaCliente']);
+    $cpf        = $_REQUEST['txtCPFCliente'];
     $clienteDAO = new ClienteDAO();
+    $cliente    = $clienteDAO->getCliente($cpf);
 
-    $clienteDAO->incluirCliente($cliente);
-
-    if ($cliente->admin == 1) {
+    if ($cliente == null) {
+        $cliente = new Cliente($cpf, $_REQUEST['txtCNHCliente'], $_REQUEST['txtNomeCliente'], $_REQUEST['txtRGCliente'], $_REQUEST['txtEnderecoCliente'], $_REQUEST['txtTelefoneCliente'], $_REQUEST['txtEmailCliente'], $_REQUEST['txtSenhaCliente']);
+        $clienteDAO->incluirCliente($cliente);
         header("Location:controllerCliente.php?opcao=2");
     } else {
-        header("Location:../index.php");
+        header("Location:../formCliente.php?erro=2");
     }
 
 }
@@ -81,5 +82,15 @@ if ($opcao == 8) {
     $locacaoDAO                  = new LocacaoDAO();
     $cliente                     = $_SESSION["Cliente"];
     $_SESSION["ClienteLocacoes"] = $locacaoDAO->getLocacoesCliente($cliente->cpf);
-    header("Location: ../exibirLocacoes.php");
+    header("Location: ../exibirLocacoesCliente.php");
+}
+
+if ($opcao == 9) {
+    session_start();
+    $locacaoDAO                  = new LocacaoDAO();
+    $cliente                     = $_SESSION["Cliente"];
+    $dataInicial                 = $_REQUEST['dataInicial'];
+    $dataFinal                   = $_REQUEST['dataFinal'];
+    $_SESSION["ClienteLocacoes"] = $locacaoDAO->getLocacoesPorDataCliente($dataInicial, $dataFinal, $cliente->cpf);
+    header("Location: ../exibirLocacoesCliente.php");
 }

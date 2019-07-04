@@ -13,7 +13,7 @@ if ($opcao == 1) {
         $cliente = $_SESSION["Cliente"];
         header("Location:../pagamento.php");
     } else {
-        header("Location:../login.php");
+        header("Location:../login.php?status=2");
     }
 }
 
@@ -26,7 +26,7 @@ if ($opcao == 2) {
     $aluguelDAO = new AluguelDAO();
 
     foreach ($carrinho as $item) {
-        $aluguel = new Aluguel($item->getDataInicial(), $item->getDataInicial(), ($valorTotal - $item->getValorTotal()), $cliente->cpf, $item->getVeiculo());
+        $aluguel = new Aluguel($item->getDataInicial(), $item->getDataFinal(), ($valorTotal - $item->getValorTotal()), $cliente->cpf, $item->getVeiculo());
         $aluguelDAO->IncluirAluguel($aluguel);
     }
 

@@ -15,20 +15,23 @@ class ClienteDAO
 
     public function incluirCliente(Cliente $cliente)
     {
-        $sql = $this->con->prepare("insert into socios(cpf,cnh, nome, rg, endereco, telefone, email,senha) values (:cpf,:cnh,:nome,:rg,:endereco,:telefone,:email,:senha)");
+        try {
+            $sql = $this->con->prepare("insert into socios(cpf,cnh,nome,rg,endereco,telefone,email,senha,admin) values (:cpf,:cnh,:nome,:rg,:endereco,:telefone,:email,:senha,0)");
 
-        $sql->bindValue(':cpf', $cliente->getCpf());
-        $sql->bindValue(':cnh', $cliente->getCNH());
-        $sql->bindValue(':nome', $cliente->getNome());
-        $sql->bindValue(':rg', $cliente->getRg());
-        $sql->bindValue(':endereco', $cliente->getEndereco());
-        $sql->bindValue(':telefone', $cliente->getTelefone());
-        $sql->bindValue(':email', $cliente->getEmail());
-        $sql->bindValue(':senha', $cliente->getSenha());
+            $sql->bindValue(':cpf', $cliente->getCpf());
+            $sql->bindValue(':cnh', $cliente->getCNH());
+            $sql->bindValue(':nome', $cliente->getNome());
+            $sql->bindValue(':rg', $cliente->getRg());
+            $sql->bindValue(':endereco', $cliente->getEndereco());
+            $sql->bindValue(':telefone', $cliente->getTelefone());
+            $sql->bindValue(':email', $cliente->getEmail());
+            $sql->bindValue(':senha', $cliente->getSenha());
 
-        $sql->execute();
+            $sql->execute();
+        } catch (Exception $ex) {
+            $ex->getMessage();
+        }
     }
-
     public function getClientes()
     {
         $rs = $this->con->query("SELECT * FROM socios");
