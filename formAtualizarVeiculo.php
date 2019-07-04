@@ -1,7 +1,11 @@
 <?php
 require_once 'cabecalho.php';
 require_once 'dao/categoriaDAO.php';
-session_start();
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 $veiculo = $_SESSION['veiculo'];
 ?>
 <div class="container container-titulo" >

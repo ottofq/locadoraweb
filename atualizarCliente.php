@@ -1,6 +1,8 @@
 <?php
 require_once 'cabecalho.php';
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 $cliente = $_SESSION['Cliente'];
 ?>
     <div class="container container-titulo" >
