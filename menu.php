@@ -14,7 +14,7 @@
                             <a class="nav-link links" href="login.php">Login</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link links" href="#">Quem Somos</a>
+                            <a class="nav-link links" href="quemSomos.php">Quem Somos</a>
                     </li>
 
                     <li class="nav-item">
