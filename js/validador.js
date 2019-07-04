@@ -1,9 +1,9 @@
-function validacao() {
-  var cpf = document.getElementById("validationCPF");
-  var cnh = document.getElementById("validationCNH");
-  var telefone = document.getElementById("validationCelular");
-  var senha = document.getElementById("validationSenha");
-  var senha2 = document.getElementById("validationSenha2");
+function validarClienteSide() {
+  var cpf = document.getElementById("CPF");
+  var cnh = document.getElementById("CNH");
+  var telefone = document.getElementById("Celular");
+  var senha = document.getElementById("Senha");
+  var senha2 = document.getElementById("Senha2");
 
   var validadorCPF = document.getElementById("CPFValidador");
   var validadorCNH = document.getElementById("CNHValidador");
@@ -60,7 +60,7 @@ function validacao() {
 
 }
 
-function validarCPF(){
+function validarServerSide(){
   var query = location.search;
   var erro = query.split("?erro=");
 
@@ -68,12 +68,28 @@ function validarCPF(){
     console.log('partes',erro);
 
     if(erro[1] == 2){
-        var cpf = document.getElementById("validationCPF");
+        var cpf = document.getElementById("CPF");
         var validadorCPF = document.getElementById("CPFValidador");
         cpf.classList.add('is-invalid');
         validadorCPF.className = 'invalid-feedback';
         validadorCPF.innerHTML = "JÁ EXISTE UM CLIENTE COM ESSE CPF ASSOCIADO!";
     }
+
+    if(erro[1] == 3){
+      var cnh = document.getElementById("CNH");
+      var validadorCNH = document.getElementById("CNHValidador");
+      cnh.classList.add('is-invalid');
+      validadorCNH.className = 'invalid-feedback';
+      validadorCNH.innerHTML = "JÁ EXISTE UM CLIENTE COM ESSE CNH ASSOCIADO!";
+  }
+
+  if(erro[1] == 4){
+    var email = document.getElementById("Email");
+    var validadorEmail = document.getElementById("EmailValidador");
+    email.classList.add('is-invalid');
+    validadorEmail.className = 'invalid-feedback';
+    validadorEmail.innerHTML = "JÁ EXISTE UM CLIENTE COM ESSE EMAIL ASSOCIADO!";
+}
 }
 
 function validarDatas() {

@@ -89,6 +89,16 @@ class ClienteDAO
         return $sql->fetch(PDO::FETCH_OBJ);
     }
 
+    public function getClienteCNH($cnh)
+    {
+        $sql = $this->con->prepare('SELECT * FROM socios WHERE cnh= :cnh');
+
+        $sql->bindValue(':cnh', $cnh);
+        $sql->execute();
+
+        return $sql->fetch(PDO::FETCH_OBJ);
+    }
+
     public function autentica($email, $senha)
     {
         $sql = $this->con->prepare("SELECT * FROM socios WHERE email = :email AND senha = :senha");

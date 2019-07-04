@@ -8,13 +8,25 @@ $opcao = (int) $_REQUEST['opcao'];
 
 if ($opcao == 1) {
     $cpf        = $_REQUEST['txtCPFCliente'];
+    $cnh        = $_REQUEST['txtCNHCliente'];
+    $email      = $_REQUEST['txtEmailCliente'];
     $clienteDAO = new ClienteDAO();
-    $cliente    = $clienteDAO->getCliente($cpf);
+    $isCPF      = ($clienteDAO->getCliente($cpf));
+    $isCNH      = ($clienteDAO->getClienteCNH($cnh));
+    $isEmail    = ($clienteDAO->getClientePorEmail($email));
 
-    if ($cliente == null) {
-        $cliente = new Cliente($cpf, $_REQUEST['txtCNHCliente'], $_REQUEST['txtNomeCliente'], $_REQUEST['txtRGCliente'], $_REQUEST['txtEnderecoCliente'], $_REQUEST['txtTelefoneCliente'], $_REQUEST['txtEmailCliente'], $_REQUEST['txtSenhaCliente']);
-        $clienteDAO->incluirCliente($cliente);
-        header("Location:controllerCliente.php?opcao=2");
+    if ($isCPF == null) {
+        if ($isCNH == null) {
+            if ($isEmail == null) {
+                $cliente = new Cliente($cpf, $cnh, $_REQUEST['txtNomeCliente'], $_REQUEST['txtRGCliente'], $_REQUEST['txtEnderecoCliente'], $_REQUEST['txtTelefoneCliente'], $email, $_REQUEST['txtSenhaCliente']);
+                $clienteDAO->incluirCliente($cliente);
+                header("Location:controllerCliente.php?opcao=2");
+            } else {
+                header("Location:../formCliente.php?erro=4");
+            }
+        } else {
+            header("Location:../formCliente.php?erro=3");
+        }
     } else {
         header("Location:../formCliente.php?erro=2");
     }

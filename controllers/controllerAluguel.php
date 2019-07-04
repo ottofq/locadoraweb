@@ -2,6 +2,7 @@
 
 require_once '../model/aluguel.php';
 require_once '../dao/aluguelDAO.php';
+require_once '../dao/veiculoDAO.php';
 require_once '../model/item.php';
 
 $opcao = (int) $_REQUEST['opcao'];
@@ -24,10 +25,12 @@ if ($opcao == 2) {
     $valorTotal = $_SESSION["ValorReserva"];
 
     $aluguelDAO = new AluguelDAO();
+    $veiculoDAO = new veiculoDAO();
 
     foreach ($carrinho as $item) {
-        $aluguel = new Aluguel($item->getDataInicial(), $item->getDataFinal(), ($valorTotal - $item->getValorTotal()), $cliente->cpf, $item->getVeiculo());
+        $aluguel = new Aluguel($item->getDataInicial(), $item->getDataFinal(), $item->getValorTotal(), $cliente->cpf, $item->getVeiculo());
         $aluguelDAO->IncluirAluguel($aluguel);
+        $veiculoDAO->setLocado($item->getVeiculo());
     }
 
     unset($_SESSION["Carrinho"]);

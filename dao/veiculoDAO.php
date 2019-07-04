@@ -139,4 +139,14 @@ class VeiculoDAO
 
         return $sql->fetch(PDO::FETCH_OBJ);
     }
+
+    public function setLocado($placa)
+    {
+        $sql = $this->con->prepare("UPDATE veiculos  SET locado = 1 WHERE placa = :placa ");
+
+        $sql->bindValue(':placa', $placa);
+        $sql->execute();
+
+        return $sql->fetch(PDO::FETCH_OBJ);
+    }
 }

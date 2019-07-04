@@ -1,6 +1,8 @@
 <?php require_once 'cabecalho.php'?>
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 $user = $_SESSION["Cliente"];
 if ($user->admin == 0) {
     header("Location:index.php");

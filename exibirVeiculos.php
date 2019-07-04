@@ -1,8 +1,18 @@
 <?php
-
 require_once 'cabecalho.php';
 require_once 'dao/categoriaDAO.php';
-session_start();
+?>
+
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+$cliente = $_SESSION["Cliente"];
+
+if ($cliente->admin == 0) {
+    header("Location:index.php");
+}
+
 ?>
 <div class="container container-titulo" >
     <h2>Veículos Cadastrados</h2>
