@@ -11,7 +11,7 @@
                         <a class="nav-link links" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link links" href="#">Minhas Reservas</a>
+                            <a class="nav-link links" href="controllers/controllerCliente.php?opcao=8">Minhas Reservas</a>
                     </li>
                     <li class="nav-item dropdown menu-dropdown">
                             <a class="nav-link dropdown-toggle  " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -19,7 +19,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item" href="atualizarCliente.php">Atualizar Dados</a>
-                              <a class="dropdown-item" href="">Ver Reservas</a>
+                              <a class="dropdown-item" href="controllers/controllerCliente.php?opcao=8">Ver Reservas</a>
                               <a class="dropdown-item" href="controllers/controllerCliente.php?opcao=7">Logout</a>
                             </div>
                     </li>

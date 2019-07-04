@@ -2,6 +2,7 @@
 
 require_once '../model/cliente.php';
 require_once '../dao/clienteDAO.php';
+require_once "../dao/locacaoDAO.php";
 
 $opcao = (int) $_REQUEST['opcao'];
 
@@ -71,7 +72,14 @@ if ($opcao == 6) {
 
 if ($opcao == 7) {
     session_start();
-    //unset($_SESSION["Cliente"]);
     session_destroy();
     header("Location:../index.php");
+}
+
+if ($opcao == 8) {
+    session_start();
+    $locacaoDAO                  = new LocacaoDAO();
+    $cliente                     = $_SESSION["Cliente"];
+    $_SESSION["ClienteLocacoes"] = $locacaoDAO->getLocacoesCliente($cliente->cpf);
+    header("Location: ../exibirLocacoes.php");
 }
