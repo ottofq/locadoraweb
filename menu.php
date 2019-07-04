@@ -18,7 +18,7 @@
                     </li>
 
                     <li class="nav-item">
-                            <a class="nav-link links" href="#">Fale Conosco</a>
+                            <a class="nav-link links" href="faleConosco.php">Fale Conosco</a>
                     </li>
                 </ul>
 

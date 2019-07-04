@@ -71,9 +71,8 @@
       </div>
     </div>
     <div class="col">
-      <h2>Viva o Bootstrap</h2>
-      <p>Build responsive, mobile-first projects on the web with the world’s most popular front-end component library.</p>
-      <p>Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery.</p>
+      <h2>Bem vindo a Alegre Car!</h2>
+      <p>Aqui você irá encontrar o carro que precisa para sua viagem ou passeio. Temos vários modelos de carros das mais variadas marcas, pesquise, compare e comprove que nossos preços e modelos são imbatíveis.</p>
     </div>
   </div>
 </div>
