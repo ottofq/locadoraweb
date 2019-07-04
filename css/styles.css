@@ -54,15 +54,7 @@ nav *,h2{
     text-align: center;
 }
 
-.formCliente-button > button{
-    font-family: 'Bungee', cursive;
-    margin-top: 10px;
-}
 
-.formCliente-button > a > button{
-    font-family: 'Bungee', cursive;
-    margin-top : 10px;
-}
 
 /* exibir clientes */
 .container-tbl, .container-busca{
@@ -80,23 +72,10 @@ nav *,h2{
     text-align: center;
 }
 
-a > button{
-    font-family: 'Bungee', cursive;
-    margin-left: 5px;
-}
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
     background-color: #ade1d0;
 }
 
-.btn-exibirClientes > a > button{
-    margin-top: 10px;
-}
-
-
-/* atualizar cliente*/
-form > button{
-    font-family: 'Bungee', cursive;
-}
 
 .carrinho-img {
     width: 30px;
@@ -118,6 +97,54 @@ form > button{
     width: 440px;
     height: 330px;
 }
- h4{
+
+.pag-dados{
+    border: #256450 2px solid;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 10px;
+    margin: 10px;
+}
+.valorTotal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h4{
      margin : 10px;
+     font-family: 'Bungee', cursive;
+     color:#256450;
+}
+ .botoes-finalizar{
+    display: flex;
+    justify-content: right;
+    align-items: right;
  }
+ 
+ /* TODOS OS BOTOES */
+ *.btn{
+    font-family: 'Bungee', cursive;
+    margin: 5px;
+ }
+
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:50%;
+    position:relative;
+    height:0;
+    border: #256450 2px solid;
+    border-radius: 10px;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+.finalizado svg{
+    height: 50px;
+    width: 50px;
+}

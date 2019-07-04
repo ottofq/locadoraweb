@@ -30,20 +30,6 @@
     </div>
   </div>
 </div>
-<?php
-require_once 'model/veiculo.php';
-require_once 'dao/veiculoDAO.php';
-require_once 'dao/categoriaDAO.php';
-$categoriaDAO = new CategoriaDAO();
-$veiculoDAO   = new VeiculoDAO();
-$veiculos     = $veiculoDAO->getVeiculos();
-?>
-
-    <div class="container">
-        <h2>Viva o Bootstrap</h2>
-        <p>Build responsive, mobile-first projects on the web with the world’s most popular front-end component library.</p>
-        <p>Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery.</p>
-    </div>
 
 <div class="container container-busca">
   <form action="" method="post">
@@ -77,30 +63,6 @@ $veiculos     = $veiculoDAO->getVeiculos();
   </form>
 </div>
 
-<div class="container">
-  <div class='row'>
-<?php
-foreach ($veiculos as $veiculo) {
-    $categoria = $categoriaDAO->getDescricao($veiculo->idcategoria);
-    $preco     = $categoria->valor + $veiculo->valorBase;
-    echo "<div class='col-md-4'>";
-    echo "<div class='card card-veiculo' style='width: 18rem;'>";
-    echo "<img class='card-img-top' src=imagens/carros/" . $veiculo->modelo . $veiculo->anoFabricacao . ".jpg" . " alt='Imagem de capa do card'>";
-    echo "<div class='card-body'>";
-    echo "<h5 class='card-title'>$veiculo->fabricante $veiculo->modelo $veiculo->anoFabricacao $veiculo->motorizacao</h5>";
-    echo "</div>";
-    echo " <ul class='list-group list-group-flush'>
-      <li class='list-group-item'>Valor da Diária: R$ $preco</li>
-    </ul>
-
-    <div class='card-body'>
-      <a href='#' class='card-link'>Mais detalhes</a>
-      <a href='controllers/controllerCarrinho.php?opcao=1&placa=$veiculo->placa' class='card-link'>Alugar</a>
-    </div>
-  </div>
-  </div>
-  ";
-}?>
 </div>
 </div>
 

@@ -32,3 +32,9 @@ function calculaItem($placa, $dataInicial, $dataFinal)
 
     return new Item($veiculo->placa, $dataInicial, $dataFinal, $valorTotal);
 }
+
+function converterData($data)
+{
+    $dt = str_replace('/', '-', $data);
+    return date('d/m/Y', strtotime($dt));
+}

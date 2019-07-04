@@ -83,7 +83,7 @@ foreach ($veiculosDisponiveis as $veiculo) {
           <div class="row">
             <div class="col-sm-4">
               <h5><?php echo $veiculo->modelo ?></h5>
-              <img class="card-img-top" src="imagens/carros/<?php echo $veiculo->modelo . $veiculo->anoFabricacao ?>.jpg" style="width: 15rem">
+              <img class="card-img-top" src="imagens/carros/<?php echo $veiculo->placa ?>.jpg" style="width: 15rem">
             </div>
             <div class="col-sm-4">
               <ul class="list-group list-group-flush">
@@ -99,7 +99,7 @@ foreach ($opcionais as $op) {
               <h5 class="mb-4">
               <p>R$ <?php echo $diaria ?> / diária</p>
               </h5>
-              <a href="controllers/controllerCarrinho.php?opcao=1&placaVeiculo=<?php echo $veiculo->placa ?>"><button class="btn btn-warning btn-lg">Selecionar</button></a>
+              <a href="controllers/controllerCarrinho.php?opcao=1&placaVeiculo=<?php echo $veiculo->placa ?>"><button class="btn btn-outline-success">Selecionar</button></a>
             </div>
           </div>
         </div>
