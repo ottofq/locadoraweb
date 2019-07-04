@@ -33,7 +33,7 @@ function validacao() {
         validadorCNH.innerHTML = "CNH Inválida, digite os 11 digitos válidos!"
         return false;
     }
-    
+
     if(telefone.value.length === 15){
         telefone.classList.add('is-valid');
         telefone.classList.remove('is-invalid');
@@ -60,3 +60,90 @@ function validacao() {
 
 }
 
+function validarDatas() {
+
+    // Validação da data e horario de retirada
+
+    var flagRetirada = false;
+    var flagDevolucao = false;
+
+    var dataRetirada = document.getElementById("dataRetirada").value;
+    var horarioRetirada = document.getElementById("horarioRetirada").value;
+    var dr = dataRetirada.split("-");
+    var hr = horarioRetirada.toString().split(":");
+    var ano = dr[0];
+    var mes = dr[1]-1;
+    var dia = dr[2];
+    var hora = hr[0];
+    var minutos = hr[1];
+    var seg = "0";
+    var mili = "0";
+
+    var dataRetiradaEscolhida = new Date(ano, mes, dia, hora, minutos, seg, mili);
+    var dataAtual = new Date();
+
+    var difRetirada = dataRetiradaEscolhida.getTime() - dataAtual.getTime();
+    if (difRetirada > 0) {
+      if ((hora >= 8 && hora < 18) || (hora == 18 && minutos == 0)) {
+        flagRetirada = true;
+      }
+    }
+
+    // Validação da data e horario de entrega
+
+    var dataDevolucao = document.getElementById("dataDevolucao").value;
+    var horarioDevolucao = document.getElementById("horarioDevolucao").value;
+    var dr = dataDevolucao.split("-");
+    var hr = horarioDevolucao.toString().split(":");
+    var ano = dr[0];
+    var mes = dr[1]-1;
+    var dia = dr[2];
+    var hora = hr[0];
+    var minutos = hr[1];
+    var seg = "0";
+    var mili = "0";
+
+    var dataDevolucaoEscolhida = new Date(ano, mes, dia, hora, minutos, seg, mili);
+
+    var dif = dataDevolucaoEscolhida.getTime() - dataRetiradaEscolhida.getTime();
+    if (dif > 0) {
+      if ((hora >= 8 && hora < 18) || (hora == 18 && minutos == 0)) {
+        flagDevolucao = true;
+      }
+    }
+
+    if (flagRetirada == true && flagDevolucao == true) {
+      return true;
+    } else {
+
+      if (flagRetirada == false) {
+        var erro = document.getElementById("erroDataRetirada");
+        erro.classList.add("alert");
+        erro.classList.add("alert-danger");
+        erro.classList.add("p-1");
+        erro.innerHTML = "Data ou horário inválido. Favor escolhê-los corretamente";
+      } else {
+        var erro = document.getElementById("erroDataRetirada");
+        erro.classList.remove("alert");
+        erro.classList.remove("alert-danger");
+        erro.classList.remove("p-1");
+        erro.innerHTML = "";
+      }
+
+      if (flagDevolucao == false) {
+        var erro = document.getElementById("erroDataDevolucao");
+        erro.classList.add("alert");
+        erro.classList.add("alert-danger");
+        erro.classList.add("p-1");
+        erro.innerHTML = "Data ou horário inválido. Favor escolhê-los corretamente";
+      } else {
+        var erro = document.getElementById("erroDataDevolucao");
+        erro.classList.remove("alert");
+        erro.classList.remove("alert-danger");
+        erro.classList.remove("p-1");
+        erro.innerHTML = "";
+      }
+
+      return false;
+    }
+}

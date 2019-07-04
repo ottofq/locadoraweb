@@ -15,23 +15,69 @@ $_SESSION["DataInicial"] = $dataRetirada;
 $_SESSION["DataFinal"]   = $dataDevolucao;
 
 ?>
-
+<script type="text/javascript" src="js/validador.js"></script>
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-3 p-0 ">
 
       <div class="card text-white bg-secondary p-4 mb-3">
       <p>
-        <form action="#" method="post">
+        <form action="#" onsubmit="return validarDatas()" method="post">
           <div class="form-group">
             <label>Data de retirada</label>
-            <input type="date" name="dataRetirada" class="form-control" value="<?php echo $dataRetirada ?>" required><br>
-            <input type="time" name="horarioRetirada" class="form-control" value="<?php echo $horarioRetirada ?>" required>
+            <div id="erroDataRetirada"></div>
+            <input type="date" name="dataRetirada" id="dataRetirada" class="form-control" value="<?php echo $dataRetirada ?>" required><br>
+            <select class="form-control" name="horarioRetirada" id="horarioRetirada">
+              <option value="08:00">08:00</option>
+              <option value="08:30">08:30</option>
+              <option value="09:00">09:00</option>
+              <option value="09:30">09:30</option>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+              <option value="14:00">14:00</option>
+              <option value="14:30">14:30</option>
+              <option value="15:00">15:00</option>
+              <option value="15:30">15:30</option>
+              <option value="16:00">16:00</option>
+              <option value="16:30">16:30</option>
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+            </select>
           </div>
           <div class="form-group">
             <label>Data de devolução</label>
-            <input type="date" name="dataDevolucao" class="form-control" value="<?php echo $dataDevolucao ?>" required><br>
-            <input type="time" name="horarioDevolucao" class="form-control" value="<?php echo $horarioDevolucao ?>" required>
+            <div id="erroDataDevolucao"></div>
+            <input type="date" name="dataDevolucao" id="dataDevolucao" class="form-control" value="<?php echo $dataDevolucao ?>" required><br>
+            <select class="form-control" name="horarioDevolucao" id="horarioDevolucao">
+              <option value="08:00">08:00</option>
+              <option value="08:30">08:30</option>
+              <option value="09:00">09:00</option>
+              <option value="09:30">09:30</option>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+              <option value="14:00">14:00</option>
+              <option value="14:30">14:30</option>
+              <option value="15:00">15:00</option>
+              <option value="15:30">15:30</option>
+              <option value="16:00">16:00</option>
+              <option value="16:30">16:30</option>
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+            </select>
           </div>
           <input type="submit" class="btn btn-success btn-lg" value="Pesquisar">
         </form>
@@ -111,5 +157,13 @@ foreach ($opcionais as $op) {
   </div>
 
 </div>
+<script type="text/javascript">
+  window.onload = function() {
+    var horarioRetirada = document.getElementById("horarioRetirada");
+    var horarioDevolucao = document.getElementById("horarioDevolucao");
 
+    horarioRetirada.value = "<?php echo $horarioRetirada ?>";
+    horarioDevolucao.value = "<?php echo $horarioDevolucao ?>";
+  }
+</script>
 <?php require_once 'rodape.php'?>

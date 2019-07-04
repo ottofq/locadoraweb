@@ -1,4 +1,5 @@
 <?php include_once 'cabecalho.php'?>
+<script type="text/javascript" src="js/validador.js"></script>
  <div class="container">
   <div class="row">
     <div class="col">
@@ -7,16 +8,62 @@
         <h5 class="card-subtitle">Aluguel de carros com os melhores preços</h5>
         <br>
         <p>
-          <form action="veiculos.php" method="post">
+          <form action="veiculos.php" onsubmit="return validarDatas()" method="post">
             <div class="form-group">
-              <label>Data de retirada</label>
-              <input type="date" name="dataRetirada" class="form-control" required><br>
-              <input type="time" name="horarioRetirada" class="form-control" required>
+              <label>Data e horário de retirada</label>
+              <div id="erroDataRetirada"></div>
+              <input type="date" name="dataRetirada" id="dataRetirada" class="form-control" required><br>
+              <select class="form-control" name="horarioRetirada" id="horarioRetirada">
+                <option value="08:00">08:00</option>
+                <option value="08:30">08:30</option>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+              </select>
             </div>
             <div class="form-group">
-              <label>Data de devolução</label>
-              <input type="date" name="dataDevolucao" class="form-control" required><br>
-              <input type="time" name="horarioDevolucao" class="form-control" required>
+              <label>Data e horário de devolução</label>
+              <div id="erroDataDevolucao"></div>
+              <input type="date" name="dataDevolucao" id="dataDevolucao" class="form-control" required><br>
+              <select class="form-control" name="horarioDevolucao" id="horarioDevolucao">
+                <option value="08:00">08:00</option>
+                <option value="08:30">08:30</option>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+              </select>
             </div>
             <input type="submit" class="btn btn-success btn-lg" value="Pesquisar">
           </form>
@@ -30,6 +77,7 @@
     </div>
   </div>
 </div>
+
 <?php
 require_once 'model/veiculo.php';
 require_once 'dao/veiculoDAO.php';
@@ -38,7 +86,7 @@ $categoriaDAO = new CategoriaDAO();
 $veiculoDAO   = new VeiculoDAO();
 $veiculos     = $veiculoDAO->getVeiculos();
 ?>
-
+<!--
     <div class="container">
         <h2>Viva o Bootstrap</h2>
         <p>Build responsive, mobile-first projects on the web with the world’s most popular front-end component library.</p>
@@ -103,5 +151,5 @@ foreach ($veiculos as $veiculo) {
 }?>
 </div>
 </div>
-
+-->
 <?php include_once 'rodape.php'?>
